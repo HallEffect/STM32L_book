@@ -1,0 +1,36 @@
+\documentclass[utf8x,usehyperref,14pt]{G7-32}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc} %% ваша любимая кодировка здесь
+\usepackage[english,russian]{babel} %% это необходимо для включения переносов
+\usepackage{float}
+\usepackage[pdftex]{graphicx}
+\TableInChaper % таблицы будут нумероваться в пределах раздела
+\PicInChaper   % рисунки будут нумероваться в пределах раздела
+\setlength\GostItemGap{2mm}% для красоты можно менять от 0мм
+% \bibliographystyle{unsrt} %Стиль библиографических ссылок БибТеХа
+\sloppy
+\usepackage{array}
+\bibstyle{utf8gost705u}
+\renewcommand{\theequation}{(\arabic{chapter}.\arabic{equation})} 
+\makeatletter
+\@addtoreset{equation}{chapter} % Счетчик формул
+\makeatother
+%\bibliographystyle{unsrt}
+%%%%%%%<------------- НАЧАЛО ДОКУМЕНТА
+\setcounter{page}{3}
+\begin{document}
+%\usefont{T2A}{ftm}{m}{} %%% Использование шрифтов Т2 для возможности скопировать текст из PDF-файлов.
+%\frontmatter %%% <-- это выключает нумерацию ВСЕГО; здесь начинаются ненумерованные главы типа Исполнители, Обозначения и прочее
+%\NirTitle{\textbf{<<Торсионные наногенераторы плазменных стволовых клеток с протонной накачкой>>}}
+
+%\Introduction
+%\mainmatter %% это включает нумерацию глав и секций в документе ниже
+\tableofcontents
+
+\input{lab1/lab1}
+% \input{lab2/lab2}
+% \input{lab3/lab3}
+
+
+\end{document}
+
