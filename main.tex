@@ -1,22 +1,22 @@
 \documentclass[utf8,usehyperref,14pt]{G7-32}
 \usepackage[T2A]{fontenc}
-\usepackage[utf8]{inputenc} 				% ваша любимая кодировка здесь
-\usepackage[english,russian]{babel} 		% это необходимо для включения переносов
+\usepackage[utf8]{inputenc}                 % ваша любимая кодировка здесь
+\usepackage[english,russian]{babel}         % это необходимо для включения переносов
 \usepackage{float}
 \usepackage[pdftex]{graphicx}
 \usepackage{array}
-\TableInChaper 								% таблицы будут нумероваться в пределах раздела
-\PicInChaper   								% рисунки будут нумероваться в пределах раздела
-\setlength\GostItemGap{2mm}					% для красоты можно менять от 0мм
-\sloppy										% переносы
+\TableInChaper                              % таблицы будут нумероваться в пределах раздела
+\PicInChaper                                % рисунки будут нумероваться в пределах раздела
+\setlength\GostItemGap{2mm}                 % для красоты можно менять от 0мм
+\sloppy                                     % переносы
 
 \renewcommand{\theequation}{(\arabic{chapter}.\arabic{equation})}   % Формат нумерации формул "Глава.номер"
 
 \makeatletter
-\@addtoreset{equation}{chapter} 			% Счетчик формул
+\@addtoreset{equation}{chapter}             % Счетчик формул
 \makeatother
 
-\setcounter{page}{3}						% Начало нумерации
+\setcounter{page}{3}                        % Начало нумерации
 %<------------- НАЧАЛО ДОКУМЕНТА ---------------------------
 
 
