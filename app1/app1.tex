@@ -1,67 +1,67 @@
-\chapter*{Приложение А Порядок выполнения лабораторной работы \No1}
+\section{п÷п╬я─я▐п╢п╬п╨ п╡я▀п©п╬п╩п╫п╣п╫п╦я▐ п╩п╟п╠п╬я─п╟я┌п╬я─п╫п╬п╧ я─п╟п╠п╬я┌я▀ \No1}
 \refstepcounter{chapter}
-\addcontentsline{toc}{chapter}{Приложение А Порядок выполнения лабораторной работы \No1}
+\addcontentsline{toc}{chapter}{п÷я─п╦п╩п╬п╤п╣п╫п╦п╣ п░ п÷п╬я─я▐п╢п╬п╨ п╡я▀п©п╬п╩п╫п╣п╫п╦я▐ п╩п╟п╠п╬я─п╟я┌п╬я─п╫п╬п╧ я─п╟п╠п╬я┌я▀ \No1}
 \begin{enumerate}
-\item Выбрать вариант задания в приложении \ref{Lab1Var} в соответствии с номером в журнале. 
-\item Создать в папке с номером группы на рабочем столе папку \verb#Lab1# для файлов проекта.
-\item Скопировать в созданную папку \verb#Lab1#, папку CMSIS из папки \verb#Лабораторные работы по микроконтроллерам/Materials# на рабочем столе.
-\item Добавить в созданную папку с проектом папку \verb#STM32L1xx_StdPeriph_Driver# из папки \verb#Лабораторные работы по микроконтроллерам/Materials#.
-\item Добавить в созданную папку с проектом файл \textit{stm32l1xx\_conf.h} из папки \verb#Лабораторные работы по микроконтроллерам/Materials#, добавить его в проект.
-\item Добавьте в файлы \textit{stm32l1xx\_gpio.c, stm32l1xx\_rcc.c} строку:
+\item п▓я▀п╠я─п╟я┌я▄ п╡п╟я─п╦п╟п╫я┌ п╥п╟п╢п╟п╫п╦я▐ п╡ п©я─п╦п╩п╬п╤п╣п╫п╦п╦ \ref{Lab1Var} п╡ я│п╬п╬я┌п╡п╣я┌я│я┌п╡п╦п╦ я│ п╫п╬п╪п╣я─п╬п╪ п╡ п╤я┐я─п╫п╟п╩п╣. 
+\item п║п╬п╥п╢п╟я┌я▄ п╡ п©п╟п©п╨п╣ я│ п╫п╬п╪п╣я─п╬п╪ пЁя─я┐п©п©я▀ п╫п╟ я─п╟п╠п╬я┤п╣п╪ я│я┌п╬п╩п╣ п©п╟п©п╨я┐ \verb#Lab1# п╢п╩я▐ я└п╟п╧п╩п╬п╡ п©я─п╬п╣п╨я┌п╟.
+\item п║п╨п╬п©п╦я─п╬п╡п╟я┌я▄ п╡ я│п╬п╥п╢п╟п╫п╫я┐я▌ п©п╟п©п╨я┐ \verb#Lab1#, п©п╟п©п╨я┐ CMSIS п╦п╥ п©п╟п©п╨п╦ \verb#п⌡п╟п╠п╬я─п╟я┌п╬я─п╫я▀п╣ я─п╟п╠п╬я┌я▀ п©п╬ п╪п╦п╨я─п╬п╨п╬п╫я┌я─п╬п╩п╩п╣я─п╟п╪/Materials# п╫п╟ я─п╟п╠п╬я┤п╣п╪ я│я┌п╬п╩п╣.
+\item п■п╬п╠п╟п╡п╦я┌я▄ п╡ я│п╬п╥п╢п╟п╫п╫я┐я▌ п©п╟п©п╨я┐ я│ п©я─п╬п╣п╨я┌п╬п╪ п©п╟п©п╨я┐ \verb#STM32L1xx_StdPeriph_Driver# п╦п╥ п©п╟п©п╨п╦ \verb#п⌡п╟п╠п╬я─п╟я┌п╬я─п╫я▀п╣ я─п╟п╠п╬я┌я▀ п©п╬ п╪п╦п╨я─п╬п╨п╬п╫я┌я─п╬п╩п╩п╣я─п╟п╪/Materials#.
+\item п■п╬п╠п╟п╡п╦я┌я▄ п╡ я│п╬п╥п╢п╟п╫п╫я┐я▌ п©п╟п©п╨я┐ я│ п©я─п╬п╣п╨я┌п╬п╪ я└п╟п╧п╩ \verb\stm32l1xx_conf.h\ п╦п╥ п©п╟п©п╨п╦ \verb#п⌡п╟п╠п╬я─п╟я┌п╬я─п╫я▀п╣ я─п╟п╠п╬я┌я▀ п©п╬ п╪п╦п╨я─п╬п╨п╬п╫я┌я─п╬п╩п╩п╣я─п╟п╪/Materials#, п╢п╬п╠п╟п╡п╦я┌я▄ п╣пЁп╬ п╡ п©я─п╬п╣п╨я┌.
+\item п■п╬п╠п╟п╡я▄я┌п╣ п╡ я└п╟п╧п╩я▀ \verb\stm32l1xx_gpio.c\, \verb\stm32l1xx_rcc.c\ я│я┌я─п╬п╨я┐:
 \begin{verbatim}
 #include <stm32l1xx_conf.h>
 \end{verbatim}
-\item Создать и настроить проект в среде разработки IAR. В качестве имени проекта указать \textit{lab1}, все файлы настроек проекта сохранить в папке \verb#Lab1#.
-\item Добавить в проект IAR файлы \textit{stm32l1xx\_gpio.c, stm32l1xx\_gpio.h, stm32l1xx\_rcc.c, stm32l1xx\_rcc.h}.
-\item Построить блок-схему алгоритма главной программы.
-\item Написать программу для микроконтроллера на языке Си.
-\item Подключить отладочную плату STM32L - Discovery к компьютеру.
-\item Загрузить программу в микроконтроллер и произвести ее отладку.
-\item Отчет.
+\item п║п╬п╥п╢п╟я┌я▄ п╦ п╫п╟я│я┌я─п╬п╦я┌я▄ п©я─п╬п╣п╨я┌ п╡ я│я─п╣п╢п╣ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ IAR. п▓ п╨п╟я┤п╣я│я┌п╡п╣ п╦п╪п╣п╫п╦ п©я─п╬п╣п╨я┌п╟ я┐п╨п╟п╥п╟я┌я▄ \textit{lab1}, п╡я│п╣ я└п╟п╧п╩я▀ п╫п╟я│я┌я─п╬п╣п╨ п©я─п╬п╣п╨я┌п╟ я│п╬я┘я─п╟п╫п╦я┌я▄ п╡ п©п╟п©п╨п╣ \verb#Lab1#.
+\item п■п╬п╠п╟п╡п╦я┌я▄ п╡ п©я─п╬п╣п╨я┌ IAR я└п╟п╧п╩я▀ \verb\stm32l1xx_gpio.c\, \verb\stm32l1xx_gpio.h\, \verb\stm32l1xx_rcc.c\, \verb\stm32l1xx_rcc.h\.
+\item п÷п╬я│я┌я─п╬п╦я┌я▄ п╠п╩п╬п╨-я│я┘п╣п╪я┐ п╟п╩пЁп╬я─п╦я┌п╪п╟ пЁп╩п╟п╡п╫п╬п╧ п©я─п╬пЁя─п╟п╪п╪я▀.
+\item п²п╟п©п╦я│п╟я┌я▄ п©я─п╬пЁя─п╟п╪п╪я┐ п╢п╩я▐ п╪п╦п╨я─п╬п╨п╬п╫я┌я─п╬п╩п╩п╣я─п╟ п╫п╟ я▐п╥я▀п╨п╣ п║п╦.
+\item п÷п╬п╢п╨п╩я▌я┤п╦я┌я▄ п╬я┌п╩п╟п╢п╬я┤п╫я┐я▌ п©п╩п╟я┌я┐ STM32L - Discovery п╨ п╨п╬п╪п©я▄я▌я┌п╣я─я┐.
+\item п≈п╟пЁя─я┐п╥п╦я┌я▄ п©я─п╬пЁя─п╟п╪п╪я┐ п╡ п╪п╦п╨я─п╬п╨п╬п╫я┌я─п╬п╩п╩п╣я─ п╦ п©я─п╬п╦п╥п╡п╣я│я┌п╦ п╣п╣ п╬я┌п╩п╟п╢п╨я┐.
+\item п·я┌я┤п╣я┌.
 \end{enumerate}
 
 
 
-\section{Пример выполнения лабораторной работы \No1}
-Разработать программу для микроконтроллера в среде IAR и построить блок схему алгоритма главной программы. Работа светодиодов LD3 (Green) и LD4 (Blue) задается временными диаграммами. Последовательность, приведенная на временной диаграмме, должна повторяться бесконечно.
+\section{п÷я─п╦п╪п╣я─ п╡я▀п©п╬п╩п╫п╣п╫п╦я▐ п╩п╟п╠п╬я─п╟я┌п╬я─п╫п╬п╧ я─п╟п╠п╬я┌я▀ \No1}
+п═п╟п╥я─п╟п╠п╬я┌п╟я┌я▄ п©я─п╬пЁя─п╟п╪п╪я┐ п╢п╩я▐ п╪п╦п╨я─п╬п╨п╬п╫я┌я─п╬п╩п╩п╣я─п╟ п╡ я│я─п╣п╢п╣ IAR п╦ п©п╬я│я┌я─п╬п╦я┌я▄ п╠п╩п╬п╨ я│я┘п╣п╪я┐ п╟п╩пЁп╬я─п╦я┌п╪п╟ пЁп╩п╟п╡п╫п╬п╧ п©я─п╬пЁя─п╟п╪п╪я▀. п═п╟п╠п╬я┌п╟ я│п╡п╣я┌п╬п╢п╦п╬п╢п╬п╡ LD3 (Green) п╦ LD4 (Blue) п╥п╟п╢п╟п╣я┌я│я▐ п╡я─п╣п╪п╣п╫п╫я▀п╪п╦ п╢п╦п╟пЁя─п╟п╪п╪п╟п╪п╦. п÷п╬я│п╩п╣п╢п╬п╡п╟я┌п╣п╩я▄п╫п╬я│я┌я▄, п©я─п╦п╡п╣п╢п╣п╫п╫п╟я▐ п╫п╟ п╡я─п╣п╪п╣п╫п╫п╬п╧ п╢п╦п╟пЁя─п╟п╪п╪п╣, п╢п╬п╩п╤п╫п╟ п©п╬п╡я┌п╬я─я▐я┌я▄я│я▐ п╠п╣я│п╨п╬п╫п╣я┤п╫п╬.
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.3]{Image/77.jpg} 
 \end{center}
-\caption{Временная диаграмма}
+\caption{п▓я─п╣п╪п╣п╫п╫п╟я▐ п╢п╦п╟пЁя─п╟п╪п╪п╟}
 \end{figure}
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=0.8]{Image/78.jpg} 
+\includegraphics[scale=0.6]{Image/78.jpg} 
 \end{center}
-\caption{Схема алгоритма главной программы}
+\caption{п║я┘п╣п╪п╟ п╟п╩пЁп╬я─п╦я┌п╪п╟ пЁп╩п╟п╡п╫п╬п╧ п©я─п╬пЁя─п╟п╪п╪я▀}
 \end{figure}
 
-Пример главной программы для микроконтроллера:
+\section{п÷я─п╦п╪п╣я─ пЁп╩п╟п╡п╫п╬п╧ п©я─п╬пЁя─п╟п╪п╪я▀ п╢п╩я▐ п╪п╦п╨я─п╬п╨п╬п╫я┌я─п╬п╩п╩п╣я─п╟}
 \begin{verbatim}
 #include <stm32l1xx.h>
 #include <stm32l1xx_conf.h>
 #include <stm32l1xx_gpio.h>
 #include <stm32l1xx_rcc.h> 
-void delay(int B); /*Прототип функции delay()*/
-void led3(void);   /*Прототип функции led3()*/
-void led4(void);   /*Прототип функции led4()*/
+void delay(int B); /*п÷я─п╬я┌п╬я┌п╦п© я└я┐п╫п╨я├п╦п╦ delay()*/
+void led3(void);   /*п÷я─п╬я┌п╬я┌п╦п© я└я┐п╫п╨я├п╦п╦ led3()*/
+void led4(void);   /*п÷я─п╬я┌п╬я┌п╦п© я└я┐п╫п╨я├п╦п╦ led4()*/
 
 int main(void)
 {
-/*Объявление переменных типа uint32_t*/   
+/*п·п╠я┼я▐п╡п╩п╣п╫п╦п╣ п©п╣я─п╣п╪п╣п╫п╫я▀я┘ я┌п╦п©п╟ uint32_t*/   
 uint32_t i,j; 
 
-/*Объявление структуры GPIO_InitStructure*/ 
+/*п·п╠я┼я▐п╡п╩п╣п╫п╦п╣ я│я┌я─я┐п╨я┌я┐я─я▀ GPIO_InitStructure*/ 
 GPIO_InitTypeDef GPIO_InitStructure; 
-/*Включение тактирования*/
+/*п▓п╨п╩я▌я┤п╣п╫п╦п╣ я┌п╟п╨я┌п╦я─п╬п╡п╟п╫п╦я▐*/
 RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB, ENABLE);   
 GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7 | GPIO_Pin_6 ;
 GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
 GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-/*Инициализация структуры*/        
+/*п≤п╫п╦я├п╦п╟п╩п╦п╥п╟я├п╦я▐ я│я┌я─я┐п╨я┌я┐я─я▀*/        
 GPIO_Init(GPIOB, &GPIO_InitStructure);  
   while (1)
   {
@@ -83,20 +83,20 @@ GPIO_Init(GPIOB, &GPIO_InitStructure);
       }         
   }
 }
-void delay(int B) /*Определение функции delay()*/
+void delay(int B) /*п·п©я─п╣п╢п╣п╩п╣п╫п╦п╣ я└я┐п╫п╨я├п╦п╦ delay()*/
 {
   int i;  
   for (i=0;i<=B;i++)
   ;
 }
-void led3(void)   /*Определение функции led3()*/
+void led3(void)   /*п·п©я─п╣п╢п╣п╩п╣п╫п╦п╣ я└я┐п╫п╨я├п╦п╦ led3()*/
 {
   GPIO_SetBits(GPIOB, GPIO_Pin_7);
   delay(100000);
   GPIO_ResetBits(GPIOB, GPIO_Pin_7);
   delay(100000);
 }
-void led4(void)   /*Определение функции led4()*/
+void led4(void)   /*п·п©я─п╣п╢п╣п╩п╣п╫п╦п╣ я└я┐п╫п╨я├п╦п╦ led4()*/
 {
   GPIO_SetBits(GPIOB, GPIO_Pin_6);
   delay(100000);
@@ -105,60 +105,59 @@ void led4(void)   /*Определение функции led4()*/
 }
 \end{verbatim}
 
-\section{Варианты заданий к лабораторной работе \No1}
+\section{п▓п╟я─п╦п╟п╫я┌я▀ п╥п╟п╢п╟п╫п╦п╧ п╨ п╩п╟п╠п╬я─п╟я┌п╬я─п╫п╬п╧ я─п╟п╠п╬я┌п╣ \No1}
 \label{Lab1Var}
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.3]{Image/79.jpg} 
 \end{center}
-\caption{Вариант \No1}
+\caption{п▓п╟я─п╦п╟п╫я┌ \No1}
 \end{figure}
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.3]{Image/80.jpg} 
 \end{center}
-\caption{Вариант \No2}
+\caption{п▓п╟я─п╦п╟п╫я┌ \No2}
 \end{figure}
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.3]{Image/81.jpg} 
 \end{center}
-\caption{Вариант \No3}
+\caption{п▓п╟я─п╦п╟п╫я┌ \No3}
 \end{figure}
-
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.3]{Image/82.jpg} 
 \end{center}
-\caption{Вариант \No4}
+\caption{п▓п╟я─п╦п╟п╫я┌ \No4}
 \end{figure}
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.3]{Image/83.jpg} 
 \end{center}
-\caption{Вариант \No5}
+\caption{п▓п╟я─п╦п╟п╫я┌ \No5}
 \end{figure}
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.3]{Image/84.jpg} 
 \end{center}
-\caption{Вариант \No6}
+\caption{п▓п╟я─п╦п╟п╫я┌ \No6}
 \end{figure}
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.3]{Image/85.jpg} 
 \end{center}
-\caption{Вариант \No7}
+\caption{п▓п╟я─п╦п╟п╫я┌ \No7}
 \end{figure}
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.3]{Image/86.jpg} 
 \end{center}
-\caption{Вариант \No8}
+\caption{п▓п╟я─п╦п╟п╫я┌ \No8}
 \end{figure}
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.3]{Image/87.jpg} 
 \end{center}
-\caption{Вариант \No9}
+\caption{п▓п╟я─п╦п╟п╫я┌ \No9}
 \end{figure}
