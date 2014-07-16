@@ -15,18 +15,18 @@
 \sloppy                                     % переносы
 
 \newcounter{MinoreCounter}                  % Новый счетчик минорных версий
-\setcounter{MinoreCounter}{1}             % Текущая минорная версия
+\setcounter{MinoreCounter}{1}               % Текущая минорная версия
 
 \renewcommand{\theequation}{(\arabic{chapter}.\arabic{equation})}   % Формат нумерации формул "Глава.номер"
-\renewcommand{\version}{\versionnumber.\theMinoreCounter.\thebuildcounter}
+\renewcommand{\version}{\versionnumber.\theMinoreCounter.\thebuildcounter} % Формат версии
 
 \makeatletter
 \@addtoreset{equation}{chapter}             % Счетчик формул
 \makeatother
 
-\setcounter{page}{3}                        % Начало нумерации
-\setVersion{3}
-\increaseBuild							    % Увеличивать номер сборки при каждой компиляции
+\setcounter{page}{3}                        % Начало нумерации страниц
+\setVersion{3}                              % Текущая мажорная версия
+\increaseBuild                              % Увеличивать номер сборки при каждой компиляции
 %<------------- НАЧАЛО ДОКУМЕНТА ---------------------------
 
 
