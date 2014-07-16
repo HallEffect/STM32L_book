@@ -4,27 +4,38 @@
 \usepackage[T2A]{fontenc}
 \usepackage{pscyr}
 \usepackage[utf8]{inputenc}                 % ваша любимая кодировка здесь
-\usepackage[english,russian]{babel}                % это необходимо для включения переносов
+\usepackage[english,russian]{babel}         % это необходимо для включения переносов
 \usepackage{float}
 \usepackage[pdftex]{graphicx}
 \usepackage{array}
+\usepackage{mversion}                       % Версионирование
 \TableInChaper                              % таблицы будут нумероваться в пределах раздела
 \PicInChaper                                % рисунки будут нумероваться в пределах раздела
 \setlength\GostItemGap{2mm}                 % для красоты можно менять от 0мм
 \sloppy                                     % переносы
 
+\newcounter{MinoreCounter}                  % Новый счетчик минорных версий
+\setcounter{MinoreCounter}{1}             % Текущая минорная версия
+
 \renewcommand{\theequation}{(\arabic{chapter}.\arabic{equation})}   % Формат нумерации формул "Глава.номер"
+\renewcommand{\version}{\versionnumber.\theMinoreCounter.\thebuildcounter}
 
 \makeatletter
 \@addtoreset{equation}{chapter}             % Счетчик формул
 \makeatother
 
 \setcounter{page}{3}                        % Начало нумерации
+\setVersion{3}
+\increaseBuild							    % Увеличивать номер сборки при каждой компиляции
 %<------------- НАЧАЛО ДОКУМЕНТА ---------------------------
 
 
 \begin{document}
 \tableofcontents
+
+\begin{center}
+Текущая версия документа: \version~от \today 
+\end{center}
 
 \input{lab1/lab1} 
 \input{app1/app1}
