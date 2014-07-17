@@ -1,37 +1,35 @@
-\chapter*{Приложение В Порядок выполнения лабораторной работы \No3}
-\refstepcounter{chapter}
-\addcontentsline{toc}{chapter}{Приложение В Порядок выполнения лабораторной работы \No3}
+\section{Порядок выполнения лабораторной работы №3}
 \begin{enumerate}
 \item Выбрать вариант задания в приложении \ref{Lab3Var} в соответствии с номером в журнале.
 \item Создать в папке с номером группы на рабочем столе папку \verb#Lab3# для файлов проекта.
-\item Скопировать в созданную папку \verb#Lab3#, папку  \verb#CMSIS# из папки  \verb#Лабораторные работы по микроконтроллерам/Materials# на рабочем столе.
-\item Скопировать в созданную папку \verb#Lab3#, папку  \verb#STM32L1xx_StdPeriph_Driver# из папки  \verb#Лабораторные работы по микроконтроллерам/Materials# на рабочем столе.
-\item Скопировать в созданную папку \verb#Lab3#, папку  \verb#STM32_TouchSensing_Drive# из папки  \verb#Лабораторные работы по микроконтроллерам/Materials# на рабочем столе.
-\item Скопировать в созданную папку \verb#Lab3#, папку  \verb#Discovery# из папки  \verb#Лабораторные работы по микроконтроллерам/Materials# на рабочем столе.
-\item Скопировать в созданную папку \verb#Lab3# файлы \textit{stm32\_tsl\_conf.h, stm32l1xx\_conf.h} из папки  \verb#Лабораторные работы по микроконтроллерам/Materials# на рабочем столе.
+\item Скопировать в созданную папку \verb#Lab3#, папку  \verb#CMSIS# из папки  \verb#LabWorkSTM32L/Materials# на рабочем столе.
+\item Скопировать в созданную папку \verb#Lab3#, папку  \verb#STM32L1xx_StdPeriph_Driver# из папки  \verb#LabWorkSTM32L/Materials# на рабочем столе.
+\item Скопировать в созданную папку \verb#Lab3#, папку  \verb#STM32_TouchSensing_Drive# из папки  \verb#LabWorkSTM32L/Materials# на рабочем столе.
+\item Скопировать в созданную папку \verb#Lab3#, папку  \verb#Discovery# из папки  \verb#LabWorkSTM32L/Materials# на рабочем столе.
+\item Скопировать в созданную папку \verb#Lab3# файлы \textit{stm32\_tsl\_conf.h, stm32l1xx\_conf.h} из папки  \verb#LabWorkSTM32L/Materials# на рабочем столе.
 \item Создать и настроить проект в среде разработки IAR.
 \item В настройках проекта в категории \textit{C/C++ Compiler} во вкладке \textit{Preprocessor} указать путь до всех вложенных папок в папке \verb#Lab3#, заменяя Lab3 на \verb#$PROJ_DIR$# (см. лаб.1).
 \item В качестве имени проекта указать \textit{lab3}, все файлы настроек проекта сохранить в папке \verb#Lab3#.
 \item Добавить в проект все файлы библиотеки \textit{TSL} (папка \verb#STM32_TouchSensing_Driver#), все файлы из папки \verb#Discovery#.
-\item Добавьте в проект файлы \textit{stm32\_tsl\_conf.h, stm32l1xx\_conf.h}.
-\item Добавьте в проект файлы \textit{stm32l1xx\_gpio.h, stm32l1xx\_rcc.h, stm32l1xx\_lcd.h, stm32l1xx\_exti.h, stm32l1xx\_gpio.c, stm32l1xx\_rcc.c, stm32l1xx\_lcd.c, stm32l1xx\_exti.c} из \textit{SPL} (папка \verb#STM32L1xx_StdPeriph_Driver#).
+\item Добавьте в проект файлы \verb\stm32_tsl_conf.h\, \verb\stm32l1xx_conf.h\.
+\item Добавьте в проект файлы \verb\stm32l1xx_gpio.h\, \verb\stm32l1xx_rcc.h\, \verb\stm32l1xx_lcd.h\, \verb\stm32l1xx_exti.h\, \verb\stm32l1xx_gpio.c\, \verb\stm32l1xx_rcc.c\, \verb\stm32l1xx_lcd.c\, \verb\stm32l1xx_exti.c\ из \textit{SPL} (папка \verb#STM32L1xx_StdPeriph_Driver#).
 \item В добавленные файлы из папки \verb#STM32L1xx_StdPeriph_Driver# добавить
 \begin{verbatim}
 #include "stm32l1xx_conf.h"
 \end{verbatim}
-\item Добавить в проект файлы \textit{system\_stm32l1xx.h, system\_stm32l1xx.c, stm32l1xx.h} из папки \verb#Лабораторные работы по микроконтроллерам/#
+\item Добавить в проект файлы \verb\system_stm32l1xx.h\, \verb\system_stm32l1xx.c\, \verb\stm32l1xx.h\ из папки \verb#LabWorkSTM32L/#
 \verb#Materials/CMSIS/DeviceSupport/ST/STM32L1xx#.
-\item Добавьте в проект файл \textit{startup\_stm32l1xx\_md.s} из папки \verb#Лабораторные работы по микроконтроллерам/Materials CMSIS/#
+\item Добавьте в проект файл \verb\startup_stm32l1xx_md.s\ из папки \verb#LabWorkSTM32L/Materials CMSIS/#
 \verb#CM3/DeviceSupport/ST/STM32L1xx/startup/iar#
 \item Добавить в проект файлы все файлы из папки \verb#Discovery#
 \item Написать программу для микроконтроллера на языке Си.
-\item Изменить функции \textit{Button\_value()} и \textit{Slider\_value()}  в файле \textit{discover\_functions.c} в соответствии с вариантом задания.
+\item Изменить функции \verb\Button_value()\ и \verb\Slider_value()\  в файле \verb\discover_functions.c\ в соответствии с вариантом задания.
 \item Подключить отладочную плату STM32L - Discovery к компьютеру.
 \item Загрузить программу в микроконтроллер и произвести ее отладку. 
 \item Составить отчет.
 \end{enumerate}
 
-\section{Пример выполнения лабораторной работы \No3}
+\section{Пример выполнения лабораторной работы №3}
 Разработать программу в среде IAR. Режимы работы периферии приведены в таблице. В первом столбце приведены положения пользовательской кнопки \textit{USER} (количество соответствующих нажатий). Во втором столбце режимы работы сенсорной панели (слайдер или четыре раздельные кнопки). Третий столбец определена информация, выводимая на ЖКИ. Четвертый и пятый столбцы указывают режимы работы для светодиодов.
 
 \begin{figure}[H]
@@ -55,7 +53,7 @@
 \caption{Блок схема алгоритма обработчика прерываний}
 \end{figure}
 
-Пример главной программы для микроконтроллера
+\subsection{Пример главной программы для микроконтроллера}
 \begin{verbatim}
 #include "stm32l1xx_rcc.h"
 #include "stm32l1xx_gpio.h"
@@ -243,7 +241,8 @@ void SysTick_Handler(void)
   }
 }
 \end{verbatim}
-Пример изменения файла \textit{discover\_functions.c}
+
+\subsection{Пример изменения файла discover\_functions.c}
 \begin{verbatim}
 /*########## Вывод точки касания в процентах #############*/  
 void Slider_value(void)
@@ -270,7 +269,7 @@ void Slider_value(void)
     percent_value /= 255 ;
 /*##### Функция перевода значения в char #####*/      
     convert_into_char(percent_value,Message);
-    Message[3] = '°' ;
+    Message[3] = '0' ;
     Message[4] = '/' ;
     Message[5] = '%' ;   
 /* Вывод на ЖКИ в виде "X %", где Х - положение точки касания */
@@ -278,7 +277,7 @@ void Slider_value(void)
   } 
   else if((!TSL_GlobalSetting.b.CHANGED) && (TSLState == TSL_IDLE_STATE))
   {     //Если касание не обнаружено
-        Message[3] = '°' ;
+        Message[3] = '0' ;
         Message[4] = '/' ;
         Message[5] = '%' ;   
         LCD_GLASS_DisplayStrDeci(Message);
@@ -337,7 +336,7 @@ void Button_value(void)
 \end{verbatim}
 
 
-\section{Варианты заданий к лабораторной работе \No3}
+\section{Варианты заданий к лабораторной работе №3}
 \label{Lab3Var}
 \begin{figure}[H]
 \begin{center}
