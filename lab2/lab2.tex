@@ -644,14 +644,51 @@ while(!(LCD->SR&LCD_SR_ENS));
 \item 1K принадлежащие группе COM2;
 \item 1N принадлежащие группе COM3;
 \end{itemize}
-Что бы зажечь выбранные сегменты, необходимо установиться 1 в соответствующих разрядах регистров \textit{LCD\_RAM}, принадлежащих определенной группе COM. Разряд регистра определяется в соответствии с таблицей на рисунке \ref{kaf403}.  
-\begin{figure}[H]
+Что бы зажечь выбранные сегменты, необходимо установиться 1 в соответствующих разрядах регистров \textit{LCD\_RAM}, принадлежащих определенной группе COM. Разряд регистра определяется в соответствии с таблицей \ref{SegmentTable}.  
+
+
+\begin{table}[H]
 \begin{center}
-\includegraphics[scale=0.8]{Image/54.jpg} 
-\end{center}
 \caption{Таблица сегментов}\label{SegmentTable}
-\end{figure}
-К примеру сегмент 1G подключен к выводу \textit{LSDSEG23} ЖКИ, за данный сегмент отвечает разряд \textit{SEG41}. Сегмент 1G принадлежит группе COM0 и за него отвечает разряд \textit{SEG41}, следовательно информация о нем должна быть записана в регистр \textit{LCD\_RAM[1]} (см. рисунок \ref{COM0}), но поскольку используется функция переназначения (remapping), то информация будет записана в разряд \textit{SEG29} регистра \textit{LCD\_RAM[0]} (см. страницу \pageref{RegMemLCD}). 
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{6}{|c|}{\textbf{Сегменты ЖКИ}}                                                  & \multicolumn{2}{c|}{\textbf{Разряды}} \\ \hline
+\textbf{COM3} & \textbf{COM2} & \textbf{COM1} & \textbf{COM0} & \textbf{Pin} & \textbf{Name} & \textbf{Pin}      & \textbf{Name}     \\ \hline
+1N            & 1P            & 1D            & 1E            & 1            & LCDSEG0       & PA1               & SEG0              \\ \hline
+1DP           & 1COLON        & 1C            & 1M            & 2            & LCDSEG1       & PA2               & SEG1              \\ \hline
+2N            & 2P            & 2D            & 2E            & 3            & LCDSEG2       & PA3               & SEG2              \\ \hline
+2DP           & 2COLON        & 2C            & 2M            & 4            & LCDSEG3       & PB3               & SEG7              \\ \hline
+3N            & 3P            & 3D            & 3E            & 5            & LCDSEG4       & PB4               & SEG8              \\ \hline
+3DP           & 3COLON        & 3C            & 3M            & 6            & LCDSEG5       & PB5               & SEG9              \\ \hline
+4N            & 4P            & 4D            & 4E            & 7            & LCDSEG6       & PB10              & SEG10             \\ \hline
+4DP           & 4COLON        & 4C            & 4M            & 8            & LCDSEG7       & PB11              & SEG11             \\ \hline
+5N            & 5P            & 5D            & 5E            & 9            & LCDSEG8       & PB12              & SEG12             \\ \hline
+BAR2          & BAR3          & 5C            & 5M            & 10           & LCDSEG9       & PB13              & SEG13             \\ \hline
+6N            & 6P            & 6D            & 6E            & 11           & LCDSEG10      & PB14              & SEG14             \\ \hline
+BAR0          & BAR1          & 6C            & 6M            & 12           & LCDSEG11      & PB15              & SEG15             \\ \hline
+COM3          &               &               &               & 13           & LSDCOM3       & PB9               & COM3              \\ \hline
+              & COM2          &               &               & 14           & LCDCOM2       & PA10              & COM2              \\ \hline
+              &               & COM1          &               & 15           & LCDCOM1       & PA9               & COM1              \\ \hline
+              &               &               & COM0          & 16           & LCDCOM0       & PA8               & COM0              \\ \hline
+6J            & 6K            & 6A            & 6B            & 17           & LCDSEG12      & PA15              & SEG17             \\ \hline
+6H            & 6Q            & 6F            & 6G            & 18           & LCDSEG13      & PB8               & SEG16             \\ \hline
+5J            & 5K            & 5A            & 5B            & 19           & LCDSEG14      & PC0               & SEG18             \\ \hline
+5H            & 5Q            & 5F            & 5G            & 20           & LCDSEG15      & PC1               & SEG19             \\ \hline
+4J            & 4K            & 4A            & 4B            & 21           & LCDSEG16      & PC2               & SEG20             \\ \hline
+4H            & 4Q            & 4F            & 4G            & 22           & LCDSEG17      & PC3               & SEG21             \\ \hline
+3J            & 3K            & 3A            & 3B            & 23           & LCDSEG18      & PC6               & SEG24             \\ \hline
+3H            & 3Q            & 3F            & 3G            & 24           & LCDSEG19      & PC7               & SEG25             \\ \hline
+2J            & 2K            & 2A            & 2B            & 25           & LCDSEG20      & PC9               & SEG26             \\ \hline
+2H            & 2Q            & 2F            & 2G            & 26           & LCDSEG21      & PC9               & SEG27             \\ \hline
+1J            & 1K            & 1A            & 1B            & 27           & LCDSEG22      & PC10              & SEG40             \\ \hline
+1H            & 1Q            & 1F            & 1G            & 28           & LCDSEG23      & PC11              & SEG41             \\ \hline
+
+\end{tabular}
+\end{center}
+\end{table}
+
+
+К примеру сегмент 1G подключен к выводу \textit{LCDSEG23} ЖКИ, за данный сегмент отвечает разряд \textit{SEG41}. Сегмент 1G принадлежит группе COM0 и за него отвечает разряд \textit{SEG41}, следовательно информация о нем должна быть записана в регистр \textit{LCD\_RAM[1]} (см. рисунок \ref{COM0}), но поскольку используется функция переназначения (remapping), то информация будет записана в разряд \textit{SEG29} регистра \textit{LCD\_RAM[0]} (см. страницу \pageref{RegMemLCD}). 
 
 Сегмент 1Е подключен к выводу \textit{LSD\_SEG0} ЖКИ, за данный сегмент отвечает разряд \textit{SEG0}. Данный сегмент принадлежит группе COM0 и информация будет записана в регистр \textit{LCD\_RAM[0]}.
 
@@ -671,7 +708,7 @@ while(!(LCD->SR&LCD_SR_ENS));
 Далее исходя из полученных разрядов формируется двоичный код, который состоит из 1 в тех разрядах, которые соответствуют определенным ранее \textit{SEGx}. Полученный код записывается также в определенные ранее \textit{LCD\_RAM[x]}. В данной примере регистр \textit{LCD\_RAM[4]} (принадлежащий группе COM2) отвечает только за один сегмент 1K, 1 будет стоять в 28 разряде. В данный регистр будет записан следующий код:
 \begin{verbatim}
 LCD->RAM[4] = 0x10000000;
-// 1 0000 0000 0000 0000 0000 0000 0000_2 = 1000 0000_16
+// 1 0000 0000 0000 0000 0000 0000 0000 = 0X1000 0000
 \end{verbatim}
 До записи значений в регистры памяти необходимо проверить завершена ли предыдущая передача данных на ЖКИ. Для этого проверяется бит \textit{UDR} (Update display request) регистра \textit{LCD\_SR} (LCD status register). Контроллер ЖКИ имеет два выходных буфера, информация заносится в первый буфер, а выводится на ЖКИ из второго буфера. Бит \textit{UDR} устанавливается во время передачи из первого буфера во второй, защищая от записи регистры \textit{LCD\_RAM}.
 \begin{verbatim}

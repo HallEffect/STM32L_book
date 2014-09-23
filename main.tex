@@ -13,6 +13,7 @@
 \PicInChaper                                % рисунки будут нумероваться в пределах раздела
 \setlength\GostItemGap{2mm}                 % для красоты можно менять от 0мм
 \sloppy                                     % переносы
+\usepackage{multirow}
 
 \newcounter{MinoreCounter}                  % Новый счетчик минорных версий
 \setcounter{MinoreCounter}{1}               % Текущая минорная версия
@@ -24,26 +25,29 @@
 \@addtoreset{equation}{chapter}             % Счетчик формул
 \makeatother
 
-\setcounter{page}{3}                        % Начало нумерации страниц
+%\setcounter{page}{3}                        % Начало нумерации страниц
 \setVersion{3}                              % Текущая мажорная версия
 \increaseBuild                              % Увеличивать номер сборки при каждой компиляции
 %<------------- НАЧАЛО ДОКУМЕНТА ---------------------------
 
 
 \begin{document}
+\input{titles/title}
+
 \tableofcontents
 
 \begin{center}
 Текущая версия документа: \version~от \today 
 \end{center}
 
-%\input{lab1/lab1} 
-%\input{app1/app1}
 
-%\input{lab2/lab2} 
-%\input{app2/app2}
+\input{lab1/lab1} 
+\input{app1/app1}
+
+\input{lab2/lab2} 
+\input{app2/app2}
 
 \input{lab3/lab3} 
-%\input{app2/app2}
+\input{app3/app3}
 
 \end{document}

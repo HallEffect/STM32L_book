@@ -32,12 +32,21 @@
 \section{Пример выполнения лабораторной работы №3}
 Разработать программу в среде IAR. Режимы работы периферии приведены в таблице. В первом столбце приведены положения пользовательской кнопки \textit{USER} (количество соответствующих нажатий). Во втором столбце режимы работы сенсорной панели (слайдер или четыре раздельные кнопки). Третий столбец определена информация, выводимая на ЖКИ. Четвертый и пятый столбцы указывают режимы работы для светодиодов.
 
-\begin{figure}[H]
-\begin{center}
-\includegraphics[scale=0.28]{Image/88.jpg} 
-\end{center}
+\begin{table}[h]
 \caption{Задание к лабораторной работе}
-\end{figure}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\begin{tabular}[c]{@{}c@{}}Положение кнопки\\ User\end{tabular} & Сенсорная панель & ЖКИ   & Синий светодиод & Зеленый светодиод \\ \hline
+\multirow{4}{*}{0}                                              & 0                & X000  &                 & Горит             \\ \cline{2-5} 
+                                                                & 1                & 0X00  & Горит           &                   \\ \cline{2-5} 
+                                                                & 2                & 00X0  & Горит           & Горит             \\ \cline{2-5} 
+                                                                & 3                & 000X  &                 &                   \\ \hline
+1                                                               & Слайдер          & X \%  &                 &                   \\ \hline
+2                                                               &                  & GREEN &                 & Мигает            \\ \hline
+3                                                               &                  & BLUE  & Мигает          &                   \\ \hline
+\end{tabular}
+\end{table}
+
 
 \begin{figure}[H]
 \begin{center}
@@ -337,22 +346,156 @@ void Button_value(void)
 
 
 \section{Варианты заданий к лабораторной работе №3}
-\label{Lab3Var}
-\begin{figure}[H]
-\begin{center}
-\includegraphics[scale=0.7]{Image/91.jpg} 
-\end{center}
-\end{figure}
+
+\begin{table}[h]
+\caption{Вариант 1}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\begin{tabular}[c]{@{}c@{}}Положение кнопки\\ User\end{tabular} & Сенсорная панель & ЖКИ   & Синий светодиод & Зеленый светодиод \\ \hline
+0                                                               &                  &       & Мигает          & Мигает            \\ \hline
+\multirow{4}{*}{1}                                              & 0                & VAR 1 &                 &                   \\ \cline{2-5} 
+                                                                & 1                &       & Горит           &                   \\ \cline{2-5} 
+                                                                & 2                &       &                 &                   \\ \cline{2-5} 
+                                                                & 3                &       &                 & Горит             \\ \hline
+2                                                               &                  &       & Горит           &                   \\ \hline
+3                                                               & Слайдер          & X \%  &                 &                   \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\caption{Вариант 2}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\begin{tabular}[c]{@{}c@{}}Положение кнопки\\ User\end{tabular} & Сенсорная панель & ЖКИ   & Синий светодиод & Зеленый светодиод \\ \hline
+0                                                               & Слайдер          & X \%  & Горит           &                   \\ \hline
+1                                                               &                  &       &                 &                   \\ \hline
+\multirow{4}{*}{2}                                              & 0                &       & Горит           & Мигает            \\ \cline{2-5} 
+                                                                & 1                & VAR 2 &                 &                   \\ \cline{2-5} 
+                                                                & 2                &       &                 & Мигает            \\ \cline{2-5} 
+                                                                & 3                &       & Горит           &                   \\ \hline
+3                                                               &                  &       &                 &                   \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\caption{Вариант 3}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\begin{tabular}[c]{@{}c@{}}Положение кнопки\\ User\end{tabular} & Сенсорная панель & ЖКИ   & Синий светодиод & Зеленый светодиод \\ \hline
+0                                                               & Слайдер          & X \%  &                 &                   \\ \hline
+1                                                               &                  & VAR 3 & Горит           & Горит             \\ \hline
+\multirow{4}{*}{2}                                              & 0                & KEY 1 &                 &                   \\ \cline{2-5} 
+                                                                & 1                & KEY 2 &                 &                   \\ \cline{2-5} 
+                                                                & 2                & KEY 3 &                 &                   \\ \cline{2-5} 
+                                                                & 3                & KEY 1 &                 &                   \\ \hline
+3                                                               &                  &       & Мигает          & Горит             \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\caption{Вариант 4}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\begin{tabular}[c]{@{}c@{}}Положение кнопки\\ User\end{tabular} & Сенсорная панель & ЖКИ  & Синий светодиод & Зеленый светодиод \\ \hline
+0                                                               &                  & ALL  & Горит           & Горит             \\ \hline
+1                                                               &                  & NULL &                 &                   \\ \hline
+\multirow{4}{*}{2}                                              & 0                &      &                 & Горит             \\ \cline{2-5} 
+                                                                & 1                &      & Мигает          &                   \\ \cline{2-5} 
+                                                                & 2                &      &                 & Горит             \\ \cline{2-5} 
+                                                                &                  &      & Мигает          &                   \\ \hline
+3                                                               & Слайдер          & X \% &                 &                   \\ \hline
+\end{tabular}
+\end{table}
 
 
-\begin{figure}[H]
-\begin{center}
-\includegraphics[scale=0.7]{Image/92.jpg} 
-\end{center}
-\end{figure}
+\begin{table}[h]
+\caption{Вариант 5}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\begin{tabular}[c]{@{}c@{}}Положение кнопки\\ User\end{tabular} & Сенсорная панель & ЖКИ  & Синий светодиод & Зеленый светодиод \\ \hline
+0                                                               &                  &      &                 & Горит             \\ \hline
+1                                                               & Слайдер          & X \% &                 &                   \\ \hline
+2                                                               &                  &      & Мигает          &                   \\ \hline
+\multirow{4}{*}{3}                                              & 0                & ALL  & Мигает          & Мигает            \\ \cline{2-5} 
+                                                                & 1                &      & Горит           &                   \\ \cline{2-5} 
+                                                                & 2                &      &                 & Горит             \\ \cline{2-5} 
+                                                                & 3                &      & Мигает          &                   \\ \hline
+\end{tabular}
+\end{table}
 
-\begin{figure}[H]
-\begin{center}
-\includegraphics[scale=0.7]{Image/93.jpg} 
-\end{center}
-\end{figure}
+
+\begin{table}[h]
+\caption{Вариант 6}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\begin{tabular}[c]{@{}c@{}}Положение кнопки\\ User\end{tabular} & Сенсорная панель & ЖКИ  & Синий светодиод & Зеленый светодиод \\ \hline
+0                                                               & Слайдер          & X \% &                 & Горит             \\ \hline
+1                                                               &                  &      &                 &                   \\ \hline
+2                                                               &                  &      &                 & Горит             \\ \hline
+\multirow{4}{*}{3}                                              & 0                &      & Мигает          & Мигает            \\ \cline{2-5} 
+                                                                & 1                &      &                 &                   \\ \cline{2-5} 
+                                                                & 2                & ALL  & Горит           & Горит             \\ \cline{2-5} 
+                                                                & 3                &      & Мигает          &                   \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\caption{Вариант 7}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\begin{tabular}[c]{@{}c@{}}Положение кнопки\\ User\end{tabular} & Сенсорная панель & ЖКИ   & Синий светодиод & Зеленый светодиод \\ \hline
+\multirow{4}{*}{0}                                              & 0                & GREEN &                 & Горит             \\ \cline{2-5} 
+                                                                & 1                &       &                 &                   \\ \cline{2-5} 
+                                                                & 2                &       & Горит           &                   \\ \cline{2-5} 
+                                                                & 3                &       & Мигает          &                   \\ \hline
+1                                                               &                  &       &                 &                   \\ \hline
+2                                                               & Слайдер          & X \%  &                 & Горит             \\ \hline
+3                                                               &                  &       &                 & Горит             \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\caption{Вариант 8}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\begin{tabular}[c]{@{}c@{}}Положение кнопки\\ User\end{tabular} & Сенсорная панель & ЖКИ   & Синий светодиод & Зеленый светодиод \\ \hline
+\multirow{4}{*}{0}                                              & 0                &       &                 & Мигает            \\ \cline{2-5} 
+                                                                & 1                & NULL  &                 &                   \\ \cline{2-5} 
+                                                                & 2                & ALL   & Мигает          & Мигает            \\ \cline{2-5} 
+                                                                & 3                & GREEN &                 & Горит             \\ \hline
+1                                                               & Слайдер          & X \%  &                 &                   \\ \hline
+2                                                               &                  &       & Мигает          &                   \\ \hline
+3                                                               &                  &       & Мигает          &                   \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\caption{Вариант 9}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\begin{tabular}[c]{@{}c@{}}Положение кнопки\\ User\end{tabular} & Сенсорная панель & ЖКИ  & Синий светодиод & Зеленый светодиод \\ \hline
+0                                                               &                  &      & Мигает          &                   \\ \hline
+\multirow{4}{*}{1}                                              & 0                &      &                 & Горит             \\ \cline{2-5} 
+                                                                & 1                &      &                 &                   \\ \cline{2-5} 
+                                                                & 2                &      & Горит           &                   \\ \cline{2-5} 
+                                                                & 3                &      &                 & Горит             \\ \hline
+2                                                               &                  & ALL  & Мигает          & Мигает            \\ \hline
+3                                                               & Слайдер          & X \% & Мигает          &                   \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[h]
+\caption{Вариант 10}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\begin{tabular}[c]{@{}c@{}}Положение кнопки\\ User\end{tabular} & Сенсорная панель & ЖКИ   & Синий светодиод & Зеленый светодиод \\ \hline
+0                                                               &                  &       & Горит           & Горит             \\ \hline
+\multirow{4}{*}{1}                                              & 0                & KEY 1 &                 &                   \\ \cline{2-5} 
+                                                                & 1                &       &                 &                   \\ \cline{2-5} 
+                                                                & 2                &       & Мигает          & Мигает            \\ \cline{2-5} 
+                                                                & 3                & BLUE  &                 &                   \\ \hline
+2                                                               &                  & ALL   & Горит           &                   \\ \hline
+3                                                               & Слайдер          & X \%  & Мигает          & Мигает            \\ \hline
+\end{tabular}
+\end{table}
