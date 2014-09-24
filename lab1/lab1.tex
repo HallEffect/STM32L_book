@@ -252,7 +252,7 @@ Warning[Pe223]: function "assert_param" declared implicitly
 C:\EXAMPLES\lab1\stm32l1xx_gpio.c 124
 \end{verbatim}
 
-Ошибка указывает на то, что функция \verb\assert_param()\, которая используется в библиотеке \textit{SPL} для проверки своих аргументов, объявлена неявно. Пользователю необходимо самому реализовать эту функцию проверки или использовать <<заглушку>>. Для устранения ошибки создайте файл \verb\stm32l1xx_conf.h\ содержащий:
+Ошибка указывает на то, что функция \verb\assert_param()\, которая используется в библиотеке \textit{SPL} для проверки аргументов, передаваемых в функции, объявлена неявно. Пользователю необходимо самому реализовать эту функцию проверки или использовать <<заглушку>>. Для устранения ошибки используется файл \verb\stm32l1xx_conf.h\ содержащий объявление и реализацию функции \verb\assert_param()\:
 
 \begin{verbatim}
 #ifndef STM32L1XX_CONF_H_
@@ -263,15 +263,29 @@ C:\EXAMPLES\lab1\stm32l1xx_gpio.c 124
 #endif
 /* ------------------- */
 #endif
+
+...
+#ifdef  USE_FULL_ASSERT
+  #define assert_param(expr) ((expr) ? (void)0 : 
+                               assert_failed((uint8_t *)__FILE__, 
+                                              __LINE__))
+  void assert_failed(uint8_t* file, uint32_t line);
+#else
+  #define assert_param(expr) ((void)0)
+#endif /* USE_FULL_ASSERT */
 \end{verbatim}
 
-Поместите файл в директорию проекта и добавьте его в проект. В исходные файлы подключаемых библиотек (\verb\stm32l1xx_rcc.c\, \verb\stm32l1xx_gpio.c\) добавьте строку:
+Поместите файл \verb\stm32l1xx_conf.h\ в директорию проекта и добавьте его в проект. В исходные файлы подключаемых библиотек (\verb\stm32l1xx_rcc.c\, \verb\stm32l1xx_gpio.c\) добавьте строку:
 
 \begin{verbatim}
 #include <stm32l1xx_conf.h>
 \end{verbatim}
 
-Файл \verb\stm32l1xx_conf.h\ нужно будет подключать ко всем библиотекам, которые будут использоваться в проекте.
+Файл \verb\stm32l1xx_conf.h\ нужно будет подключать ко всем библиотекам, которые будут использоваться в проекте. Вместо подключения файла \verb\stm32l1xx_conf.h\ можно в исходном файле библиотеки определить <<заглушку>>:
+
+\begin{verbatim}
+#define assert_param(expr) ((void)0)
+\end{verbatim} 
 
 Для сборки файлов проекта нажмите \textit{ Make} (F7). Будут созданы исполняемые файлы, в окне сообщений отобразиться количество ошибок и предупреждений.
 
