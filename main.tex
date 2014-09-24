@@ -13,7 +13,8 @@
 \PicInChaper                                % рисунки будут нумероваться в пределах раздела
 \setlength\GostItemGap{2mm}                 % для красоты можно менять от 0мм
 \sloppy                                     % переносы
-\usepackage{multirow}
+\usepackage{multirow}						% таблицы
+\usepackage{setspace}                       % ручное задание межстрочного интервала
 
 \newcounter{MinoreCounter}                  % Новый счетчик минорных версий
 \setcounter{MinoreCounter}{1}               % Текущая минорная версия
@@ -32,8 +33,10 @@
 
 
 \begin{document}
-\input{titles/title}
-
+\input{titles/title}      		% Общий титульный лист
+\input{titles/title_lab1} 		%Титульный лист к лабе 1
+\input{titles/title_lab2} 		%Титульный лист к лабе 2
+\input{titles/title_lab3} 		%Титульный лист к лабе 3
 \tableofcontents
 
 \begin{center}
