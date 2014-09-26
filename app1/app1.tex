@@ -17,10 +17,6 @@
 \item Загрузить программу в микроконтроллер и произвести ее отладку.
 \item Отчет.
 \end{enumerate}
-\begin{huge}
-Подумать над отчетом и интеграцией с гитом
-\end{huge}
-
 
 \section{Пример выполнения лабораторной работы №1}
 Разработать программу для микроконтроллера в среде IAR и построить блок схему алгоритма главной программы. Работа светодиодов LD3 (Green) и LD4 (Blue) задается временными диаграммами. Последовательность, приведенная на временной диаграмме, должна повторяться бесконечно.
@@ -40,69 +36,94 @@
 
 \subsection{Пример главной программы для микроконтроллера}
 \begin{verbatim}
+/*################## Секция include ##################*/
 #include <stm32l1xx.h>
-#include <stm32l1xx_conf.h>
 #include <stm32l1xx_gpio.h>
-#include <stm32l1xx_rcc.h> 
-void delay(int B); /*Прототип функции delay()*/
-void led3(void);   /*Прототип функции led3()*/
-void led4(void);   /*Прототип функции led4()*/
+#include <stm32l1xx_rcc.h>
 
-int main(void)
-{
-/*Объявление переменных типа uint32_t*/   
-uint32_t i,j; 
+/*################## Константы ##################*/ 
+#define MAX_LOOP_NUMBER     100000 /* Количество итераций цикла 
+                                      для программной задержки */
 
-/*Объявление структуры GPIO_InitStructure*/ 
-GPIO_InitTypeDef GPIO_InitStructure; 
-/*Включение тактирования*/
-RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB, ENABLE);   
-GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7 | GPIO_Pin_6 ;
-GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
-GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-/*Инициализация структуры*/        
-GPIO_Init(GPIOB, &GPIO_InitStructure);  
-  while (1)
-  {
-    j=0;
-      while (j<3)
-      {
-        for (i=0;i<2;i++)
-        led3();
-        led4();
-        j++;       
-      }
-    j=0;
-      while (j<3)
-     {
-        for (i=0;i<2;i++)
-        led4();
-        led3();
-        j++;       
-      }         
-  }
-}
-void delay(int B) /*Определение функции delay()*/
+/*################## Прототипы функций ##################*/
+void LAB1_Delay(uint32_t value);    
+void LED3_Blink(void);              
+void LED4_Blink(void);              
+
+/*################## Опредение функций ##################*/
+
+/*
+ * Программная задержка
+ * Входные данные:
+ *  value - количество итерация цикла
+ */
+void LAB1_Delay(uint32_t value)
 {
-  int i;  
-  for (i=0;i<=B;i++)
-  ;
+    uint32_t i;
+    for (i = 0; i <= value; i++)
+        ;
 }
-void led3(void)   /*Определение функции led3()*/
+
+/*
+ * Мигание светодиода LED3
+ */
+void LED3_Blink(void)
 {
-  GPIO_SetBits(GPIOB, GPIO_Pin_7);
-  delay(100000);
-  GPIO_ResetBits(GPIOB, GPIO_Pin_7);
-  delay(100000);
+    GPIO_SetBits(GPIOB, GPIO_Pin_7);
+    LAB1_Delay(MAX_LOOP_NUMBER);
+
+    GPIO_ResetBits(GPIOB, GPIO_Pin_7);
+    LAB1_Delay(MAX_LOOP_NUMBER);
 }
-void led4(void)   /*Определение функции led4()*/
+
+/*
+ * Мигание светодиода LED4
+ */
+void LED4_Blink(void) 
 {
-  GPIO_SetBits(GPIOB, GPIO_Pin_6);
-  delay(100000);
-  GPIO_ResetBits(GPIOB, GPIO_Pin_6);
-  delay(100000);
+    GPIO_SetBits(GPIOB, GPIO_Pin_6);
+    LAB1_Delay(MAX_LOOP_NUMBER);
+
+    GPIO_ResetBits(GPIOB, GPIO_Pin_6);
+    LAB1_Delay(MAX_LOOP_NUMBER);
 }
+
+/*################## Программа ##################*/
+void main(void)
+{
+    uint32_t            i, j;
+    GPIO_InitTypeDef    GPIO_InitStructure;             
+
+    GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_7 | GPIO_Pin_6 ;
+    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_OUT;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
+    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+    
+    RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB, ENABLE); /* Тактирование*/
+    GPIO_Init(GPIOB, &GPIO_InitStructure);              /* Инициализация 
+                                                           GPIO*/
+    while(1)
+    {
+        j = 0;
+        while(j < 3)
+        {
+            for (i = 0; i < 2; i++)
+                LED3_Blink();
+            LED4_Blink();
+            j++;
+        } /* end of while(j < 3) */
+
+        j = 0;
+
+        while(j < 3)
+        {
+            for (i = 0; i < 2; i++)
+                LED4_Blink();
+            LED3_Blink();
+            j++;
+        } /* end of while(j < 3) */
+    } /* end of while(1) */
+} /* end of main() */
 \end{verbatim}
 
 \section{Варианты заданий к лабораторной работе №1}
