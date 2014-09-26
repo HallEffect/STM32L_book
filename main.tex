@@ -15,6 +15,27 @@
 \sloppy                                     % переносы
 \usepackage{multirow}						% таблицы
 \usepackage{setspace}                       % ручное задание межстрочного интервала
+\usepackage{microtype}                      % Висячая пунктуация
+\SetProtrusion
+{
+encoding = T2A,
+family = faq
+}
+{
+« = {1000,     },
+» = {    , 1000},
+„ = {1000,     },
+“ = {    , 1000},
+( = {1000,     },
+) = {    , 1000},
+! = {    , 1000},
+? = {    , 1000},
+: = {    , 1000},
+; = {    , 1000},
+. = {    , 1000},
+- = {    ,  500},
+{,}= {    , 1000}
+}
 
 \newcounter{MinoreCounter}                  % Новый счетчик минорных версий
 \setcounter{MinoreCounter}{1}               % Текущая минорная версия
