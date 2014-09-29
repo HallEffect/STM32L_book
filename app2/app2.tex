@@ -35,16 +35,16 @@
 static uint32_t TimingDelay;
 
 /*################## Прототипы функций ##################*/
-void GPIO_Init(void);
+void LCD_GPIO_Init(void);
 void LCD_CONTR_Init(void);
 void LAB2_Delay(uint32_t nTime);
 
 /*################## Опредение функций ##################*/
 
 /*
- * Функция инициализации портов микроконтроллера
+ * Функция инициализации портов микроконтроллера, подключенных к LCD
  */ 
-void GPIO_Init(void)
+void LCD_GPIO_Init(void)
 {
     /* Тактирование*/
     RCC->AHBENR |= (RCC_AHBENR_GPIOAEN | RCC_AHBENR_GPIOBEN | 
@@ -151,8 +151,8 @@ void GPIO_Init(void)
  */
 void LCD_CONTR_Init(void)
 {
-    /* Тактирование */
-    RCC->APB1ENR |= RCC_APB1ENR_PWREN|RCC_APB1ENR_LCDEN;
+    /* Тактирование контроллера ЖКИ, системы управления питанием */
+    RCC->APB1ENR |= RCC_APB1ENR_PWREN | RCC_APB1ENR_LCDEN;
 
     /* Снимается защита от записи в регистр RCC_CSR */
     PWR->CR |= PWR_CR_DBP;
@@ -235,7 +235,7 @@ void SysTick_Handler(void)
 /*################## Программа ##################*/
 void main(void)
 {
-    GPIO_Init();
+    LCD_GPIO_Init();
     LCD_CONTR_Init();
     SysTick_Config(2097);   /* Конфигурирование системного таймера 
                                SysTick, определен в core_cm3.h */
